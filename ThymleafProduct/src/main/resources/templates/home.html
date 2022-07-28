@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xlmns : th="https://www.thymeleaf.org/">
+
+<head>
+	<title>Product</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</head>
+<style>
+	body {
+		background-color: rgb(255, 255, 128);
+	}
+
+	#container {
+		margin-top: 40px;
+	}
+
+	h3{
+		background-color: rgb(255, 255, 0);
+		text-align: center;
+	}
+
+	th{
+		border-style: double;
+		background-color: rgb(255, 255, 0);
+	}
+</style>
+
+<body>
+	<h3 style="color:rgb(192, 192, 192);">PRODUCT DATA</h3>
+	<div class="container-fluid">
+		<a th:href="@{/Product/addProd}" class="btn btn-primary">Add Product</a>
+		<div class="form" style="margin-left:400px;">
+		</div>
+		<table class="table table-stripped">
+			<tr>
+				<th> ID </th>
+				<th> Product Name </th>
+				<th> Unit Price </th>
+				<th> Unit in Stocks </th>
+				<th>Description</th>
+				<th> Category ID</th>
+				<th> Action </th>
+			</tr>
+			<tr th:each="prods : ${PRODUCT}">
+				<td th:text="${prods.id}"></td>
+				<td th:text="${prods.name}"></td>
+				<td th:text="${prods.unitprice}"></td>
+				<td th:text="${prods.unitsinstock}"></td>
+				<td th:text="${prods.description}"></td>
+				<td th:text="${prods.categoryid}"></td>
+				<td>
+					<a class="btn btn-dark" th:href="@{/Product/updateForm(id = ${prods.id} )}">update</a>
+					&nbsp;
+					<a class="btn btn-dark" th:href="@{/Product/delete(id = ${prods.id} )}"
+						onclick="if(!(confirm('This will be deleted forever'))) ">delete</a>
+
+				</td>
+
+			</tr>
+	</div>
+	<br>
+</body>
+
+</html>
