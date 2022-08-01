@@ -1,0 +1,185 @@
+<!-- <app-product-list></app-product-list> -->
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid black;
+        border-collapse: separate;
+    }
+</style>
+<!-- "id" : 101,
+      "sku" : "Quaker",
+      "name" : "Oats",
+      "description" : "best Quality Oats",
+      "unitprice" : 99.99,
+      "imageurl" : "https://www.quakeroats.com/",
+      "unitinstock" : 26,
+      "datecreated" : "2020-03-23",
+      "lastupdated" : "2022-06-22",
+      "categoryid" : 1101, -->
+
+<!-- <div class="container-fluid" style="text-align: center;">
+    <div class="row">
+        <h2 style="text-align: center;">Product List</h2>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Product ID</th>
+                <th>Product SKU</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Image URL</th>
+                <th>Unit In Stocks</th>
+                <th>Date Created</th>
+                <th>Last Updated</th>
+                <th>Category ID</th>
+            </tr>
+            <tr *ngFor="let temp of products">
+                <td>{{temp.id}}</td>
+                <td>{{temp.sku}}</td>
+                <td>{{temp.name}}</td>
+                <td>{{temp.description}}</td>
+                <td>{{temp.unitprice}}</td>
+                <td><img src="{{temp.imageurl}}"></td>
+                <td>{{temp.unitinstock}}</td>
+                <td>{{temp.datecreated}}</td>
+                <td>{{temp.lastupdated}}</td>
+                <td>{{temp.categoryid}}</td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="container" style="margin-top: 30px;">
+    <h2 style="text-align: center;">Data Entry of Products</h2>
+    <form #productData="ngForm" (ngSubmit)="onSubmit()" style="margin-left: 40%;">
+        <div class="row">
+            <div class="col-sm-3"><label for="">Product ID</label></div>
+            <div class="col-sm-6"><input type="number" name="id" id="" [(ngModel)]="formModel.id"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Product SKU</label></div>
+            <div class="col-sm-6"><input type="text" name="sku" id="" [(ngModel)]="formModel.sku"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Product Name</label></div>
+            <div class="col-sm-6"><input type="text" name="name" id="" [(ngModel)]="formModel.name"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Description</label></div>
+            <div class="col-sm-6"><input type="text" name="description" id="" [(ngModel)]="formModel.description"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Unit Price</label></div>
+            <div class="col-sm-6"><input type="number" name="unitprice" id="" [(ngModel)]="formModel.unitprice"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Image URL</label></div>
+            <div class="col-sm-6"><input type="text" name="imageurl" id="" [(ngModel)]="formModel.imageurl"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Unit In Stocks</label></div>
+            <div class="col-sm-6"><input type="number" name="unitinstock" id="" [(ngModel)]="formModel.unitinstock"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Date Created</label></div>
+            <div class="col-sm-6"><input type="date" name="datecreated" id="" [(ngModel)]="formModel.datecreated"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Last Updated</label></div>
+            <div class="col-sm-6"><input type="date" name="lastupdated" id="" [(ngModel)]="formModel.lastupdated"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-3"><label for="">Category ID</label></div>
+            <div class="col-sm-6"><input type="number" name="categoryid" id="" [(ngModel)]="formModel.categoryid"></div>
+        </div>
+        &nbsp;
+        <div class="row">
+            <div class="col-sm-8"><input type="submit" value="Submit" name="submit" class="btn btn-primary"></div>
+        </div>
+    </form>
+</div> -->
+<!-- 
+<h1 style="text-align:center ;">PRODUCT LISTS</h1>
+<ul class="nav-item" style="margin-right: 15px;"><button class="btn btn-outline-light"
+    (click)="gotohome()">Home</button></ul>
+<ul class="nav-item" style="margin-right: 15px;"><button class="btn btn-outline-light" (click)="addProduct()">Add
+    Product</button></ul>
+<div class="grid-container">
+  <div *ngFor="let temp of products">
+    <div><img src="{{temp.imageurl}}" class="card-img-top" alt="..." style="height: 300px; width: 150px;"> </div>
+    <div>Product was created on: {{temp.datecreated}}</div>
+    <div>Name : {{temp.name}}</div>
+    <div>Product ID: {{temp.id}}</div>
+    <div>SKU: {{temp.sku}}</div>
+    <div>About: {{temp.description}}</div>
+    <div>Units Available: {{temp.unitinstock}}</div>
+    <div>Price: ₹{{temp.unitprice}}</div>
+    <div>Product updated on: {{temp.lastupdated}}</div>
+    <div>Product belongs to Category No.: {{temp.categoryid}}</div>
+  </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"><a routerLink="" class="btn btn-success">Home</a></div>
+
+    </div>
+    <div class="row align-items-start" id="product">
+        <div class="col-3" *ngFor="let prod of products">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+
+                    <a><img src="{{prod.imageurl}}" class="card-img-top" alt="..."></a>
+                    <p class="card-text">{{prod.name}}</p>
+                    <h6>Price</h6>
+
+                    <p style="color: rgb(107, 128, 0);">{{prod.unitprice}}</p>
+
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Buy now
+                    </button>
+
+                 
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Description</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <img src="{{prod.imageurl}}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="row">
+                                        <p>{{prod.description}}</p>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dark"
+                                        data-bs-dismiss="modal">Close</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
