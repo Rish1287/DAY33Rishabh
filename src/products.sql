@@ -1,0 +1,29 @@
+create database Ecommerce;
+use Ecommerce;
+create table Productcategory(
+categoryid BIGINT primary key,
+categoryname VARCHAR(255)
+);
+desc Productcategory;
+insert into Productcategory values(9001, "cat1"),(9002, "cat2"),(9003, "cat3"),(9004, "cat4"),(9005, "cat5");
+select * from Productcategory;
+
+create table Product(
+id BIGINT primary key,
+sku VARCHAR(255),
+name VARCHAR(255),
+description VARCHAR(255),
+unitprice DECIMAL(13,2),
+imageurl VARCHAR(255),
+unitsinstock INT,
+datecreated DATETIME(6),
+lastupdated DATETIME(6),
+categoryid BIGINT,
+foreign key(categoryid) references Productcategory(categoryid));
+desc Product;
+insert into Product values(101,"sword","katana","used to cut things",2000,"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Blade_and_Mounting_for_a_Sword_%28Katana%29_4.jpg/300px-Blade_and_Mounting_for_a_Sword_%28Katana%29_4.jpg",200,"2019-07-11","2020-07-30",9002);
+insert into Product values(102,"Consoles","PS4","its a Playstation Fam",39990,"https://gmedia.playstation.com/is/image/SIEPDC/ps4-slim-image-block-01-en-24jul20?$native--t$",5,"2012-03-14","2019-04-23",9001);
+insert into Product values(103,"PCparts","GPU","Graphics card, very costly tbh",99999,"https://alitools.io/en/showcase/image?url=https%3A%2F%2Fae01.alicdn.com%2Fkf%2FH58afee5e2e804701b040772872731b22S.jpg",1,"2013-04-12","2018-04-23",9003);
+insert into Product values(104,"chair","wood","sit down boh",200,"https://www.ikea.com/in/en/images/products/stefan-chair-brown-black__0727320_pe735593_s5.jpg?f=s",9999,"2010-04-11","2019-07-31",9004);
+insert into Product values(105,"game","Bloodborne","fromsoft game man",4999,"https://www.gamespot.com/a/uploads/scale_medium/1197/11970954/2682350-image%20%281%29.jpeg",50,"2015-05-13","2020-04-21",9005);
+select * from Product;
